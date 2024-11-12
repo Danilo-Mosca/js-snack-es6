@@ -42,20 +42,20 @@ for (let i = 0; i < biciclette.length; i++) {
 }
 console.log(biciLeggera);   // Visualizzo l'oggetto contenente la bici più leggera in console.log
 
-const divBikes = document.querySelector("main #view");
+const divBikes = document.querySelector("main #viewSnack1");
 // Creo un template html contenente i dati della bici più leggera
 const template = `
   <div>
-    <h4>La bici più leggera e la: ${biciLeggera.nome}</h4>
+    <h4>La bici più leggera è la: ${biciLeggera.nome}</h4>
     <div>Il peso della bici è: ${biciLeggera.peso} kg</div>
   </div>
   `;
 // Aggiungo il template alla pagina
-divBikes.innerHTML += template;
+divBikes.innerHTML = template;
 
 
 
-/* Snack2
+/* Snack 2
 Creare un array di oggetti di squadre di calcio.
  Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
 Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
@@ -100,10 +100,36 @@ const footballTeam = [
     },
 ];
 
-for(let key in footballTeam) {
+// Ciclo for in che itera l'oggetto footballTeam
+for (let key in footballTeam) {
     footballTeam[key].puntiFatti = getRndInteger(100, 1);
     // console.log(footballTeam[key].puntiFatti = getRndInteger(100, 1));
     footballTeam[key].falliSubiti = getRndInteger(100, 1);
     // console.log(footballTeam[key].falliSubiti = getRndInteger(100, 1));
+    // console.log(key);
 }
 // console.log(footballTeam);
+
+// Mi creo un array vuoto che conterrà solo i nomi e i falli subiti
+const footballFoulsName = [];
+for (let key in footballTeam) {
+    // Popolo l'array bidimensionale
+    footballFoulsName.push([footballTeam[key].nome, footballTeam[key].falliSubiti]);
+    // console.log(footballFoulsName);
+}
+// console.log(footballFoulsName);
+console.log(footballFoulsName);    //Visualizzio l'array bidimensionale contenente il nome delle squadre e i falli subiti
+
+const divFootballTeams = document.querySelector("main #viewSnack2");
+// Creo un template html contenente i dati con il nome della squadra e i falli subiti
+let footballTemplate ='';
+for (let valore in footballFoulsName) {
+    footballTemplate += `
+    <div>
+        <p>Squadra: <strong>${footballFoulsName[valore][0]}</strong>
+        Falli subiti: <strong>${footballFoulsName[valore][1]}</strong></p>
+    </div>
+    `
+}
+// Aggiungo il template alla pagina
+divFootballTeams.innerHTML = footballTemplate;
