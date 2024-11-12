@@ -41,7 +41,7 @@ for (let i = 0; i < biciclette.length; i++) {
     }
 }
 console.log(biciLeggera);   // Visualizzo l'oggetto contenente la bici più leggera in console.log
-
+// Recupero l'elemento div con id viewSnack1
 const divBikes = document.querySelector("main #viewSnack1");
 // Creo un template html contenente i dati della bici più leggera
 const template = `
@@ -119,10 +119,10 @@ for (let key in footballTeam) {
 }
 // console.log(footballFoulsName);
 console.log(footballFoulsName);    //Visualizzio l'array bidimensionale contenente il nome delle squadre e i falli subiti
-
+// Recupero l'elemento div con id viewSnack2
 const divFootballTeams = document.querySelector("main #viewSnack2");
 // Creo un template html contenente i dati con il nome della squadra e i falli subiti
-let footballTemplate ='';
+let footballTemplate = '';
 for (let valore in footballFoulsName) {
     footballTemplate += `
     <div>
@@ -133,3 +133,32 @@ for (let valore in footballFoulsName) {
 }
 // Aggiungo il template alla pagina
 divFootballTeams.innerHTML = footballTemplate;
+
+
+
+/* Snack 3 (Bonus)
+Scrivere una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
+La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri. */
+const emptyArray = [];
+const minim = 7;
+const maxim = 50;
+const result = numberFunction(emptyArray, minim, maxim);
+
+function numberFunction(array, min, max) {
+    for (let i = ++min; i < max; i++) {
+        emptyArray.push(i);
+    }
+    return emptyArray;
+}
+// Visualizzio l'array che contiene i valori compresi tra i due numeri (min e max) che gli ho passato come parametri
+console.log(emptyArray);
+// Recupero l'elemento div con id viewSnack3
+const divBonus = document.querySelector('main #viewSnack3');
+let bonusTemplate = `<div>I valori compresi tra i numeri <strong>${minim}</strong> e <strong>${maxim}</strong> sono:</div>`;
+for(let valore in emptyArray) {
+    bonusTemplate += `
+    <span><strong>${emptyArray[valore]}</strong></span>
+    `;
+}
+// Aggiungo il template alla pagina
+divBonus.innerHTML = bonusTemplate;
